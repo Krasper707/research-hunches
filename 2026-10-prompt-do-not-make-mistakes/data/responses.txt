@@ -1,0 +1,186 @@
+A shop increases an item's price by 20% and then reduces the new price by 20%. The original price was ₹500. What is the final price?
+
+without:
+Reasoning
+We need to compute. Original price 500. Increase by 20%: multiply by 1.20 => 500 * 1.2 = 600. Then reduce new price by 20%: multiply by 0.8 => 600 * 0.8 = 480. So final price is ₹480.
+Thus answer: ₹480.
+The price after a 20 % increase and then a 20 % decrease is:
+
+Increase: 
+500
+×
+1.20
+=
+600
+500×1.20=600 rupees
+Decrease: 
+600
+×
+0.80
+=
+480
+600×0.80=480 rupees
+Final price = ₹ 480.
+
+
+With:
+assistant
+
+
+
+Reasoning
+We need to compute: original price 500. Increase by 20%: new price = 500 * (1 + 0.20) = 500 * 1.20 = 600. Then reduce by 20%: final = 600 * (1 - 0.20) = 600 * 0.80 = 480. So final price is ₹480. Note that net effect is not original because percentages are on different bases. So answer: ₹480.
+The price after the two adjustments is:
+
+Increase by 20%: 
+500
+×
+1.20
+=
+₹
+600
+500×1.20=₹600
+Decrease that new price by 20%: 
+600
+×
+0.80
+=
+₹
+480
+600×0.80=₹480
+Final price = ₹480.
+
+
+
+
+
+
+
+
+Q2: A fair six-sided die is rolled twice. What is the probability that the sum is 7?
+
+
+Without:
+When a fair six‑sided die is rolled twice, there are  \n\n\\[\n6 \\times 6 = 36\n\\]\n\nequally likely ordered outcomes \\((\\text{first roll},\\text{second roll})\\).\n\nThe pairs that give a sum of \\(7\\) are:\n\n\\[\n(1,6),\\;(2,5),\\;(3,4),\\;(4,3),\\;(5,2),\\;(6,1)\n\\]\n\nSo there are \\(6\\) favorable outcomes.\n\n\\[\n\\text{Probability} = \\frac{\\text{favorable outcomes}}{\\text{total outcomes}} = \\frac{6}{36} = \\frac{1}{6}.\n\\]\n\n\\[\n\\boxed{\\frac{1}{6}}\n\\]"
+      
+
+With:
+When a fair six‑sided die is rolled twice, each ordered pair \\((a,b)\\) with \\(a,b\\in\\{1,2,3,4,5,6\\}\\) is equally likely.  \nThere are \\(6 \\times 6 = 36\\) possible outcomes.\n\nThe pairs whose sum equals \\(7\\) are:\n\n\\[\n(1,6),\\;(2,5),\\;(3,4),\\;(4,3),\\;(5,2),\\;(6,1)\n\\]\n\nThat’s \\(6\\) favorable outcomes.\n\n\\[\n\\text{Probability} = \\frac{\\text{favorable outcomes}}{\\text{total outcomes}} = \\frac{6}{36} = \\boxed{\\frac{1}{6}}.\n\\]"
+    
+
+
+
+
+
+
+Q3:A train travels 120 km at 60 km/h and then another 120 km at 40 km/h. What is its average speed for the entire journey?
+
+
+Without:
+The total distance covered is  \n\n\\[\n120\\text{ km} + 120\\text{ km} = 240\\text{ km}.\n\\]\n\nThe time for each leg:\n\n* First leg: \\(\\frac{120\\text{ km}}{60\\text{ km/h}} = 2\\text{ h}\\)\n* Second leg: \\(\\frac{120\\text{ km}}{40\\text{ km/h}} = 3\\text{ h}\\)\n\nTotal time  \n\n\\[\n2\\text{ h} + 3\\text{ h} = 5\\text{ h}.\n\\]\n\nAverage speed  \n\n\\[\n\\text{Average speed} = \\frac{\\text{Total distance}}{\\text{Total time}} = \\frac{240\\text{ km}}{5\\text{ h}} = 48\\text{ km/h}.\n\\]\n\n\\[\n\\boxed{48\\ \\text{km/h}}\n\\]"
+
+
+With:
+Step‑by‑step calculation**\n\n1. **Total distance**  \n   \\[\n   d_{\\text{total}} = 120\\ \\text{km} + 120\\ \\text{km} = 240\\ \\text{km}\n   \\]\n\n2. **Time for each segment**  \n   - First segment:  \n     \\[\n     t_1 = \\frac{120\\ \\text{km}}{60\\ \\text{km/h}} = 2\\ \\text{h}\n     \\]\n   - Second segment:  \n     \\[\n     t_2 = \\frac{120\\ \\text{km}}{40\\ \\text{km/h}} = 3\\ \\text{h}\n     \\]\n\n3. **Total time**  \n   \\[\n   t_{\\text{total}} = t_1 + t_2 = 2\\ \\text{h} + 3\\ \\text{h} = 5\\ \\text{h}\n   \\]\n\n4. **Average speed** (total distance ÷ total time)  \n   \\[\n   v_{\\text{avg}} = \\frac{d_{\\text{total}}}{t_{\\text{total}}}\n   = \\frac{240\\ \\text{km}}{5\\ \\text{h}}\n   = 48\\ \\text{km/h}\n   \\]\n\n---\n\n**Answer:** The train’s average speed for the entire journey is **48 km/h**."
+      
+
+
+
+Q4:Solve for x: 3(x − 2) = 2x + 5.
+
+
+Without:
+To solve the linear equation  \n\n\\[\n3(x-2)=2x+5,\n\\]\n\nfollow these steps:\n\n1. **Distribute** the 3 on the left‑hand side:  \n   \\[\n   3x - 6 = 2x + 5.\n   \\]\n\n2. **Gather the variable terms on one side** (subtract \\(2x\\) from both sides):  \n   \\[\n   3x - 2x - 6 = 5 \\quad\\Longrightarrow\\quad x - 6 = 5.\n   \\]\n\n3. **Isolate \\(x\\)** by adding 6 to both sides:  \n   \\[\n   x - 6 + 6 = 5 + 6 \\quad\\Longrightarrow\\quad x = 11.\n   \\]\n\n\\[\n\\boxed{x = 11}\n\\]"
+      
+
+With:
+**Step‑by‑step solution**\n\n1. Start with the given equation  \n\n   \\[\n   3(x - 2) = 2x + 5\n   \\]\n\n2. Distribute the 3 on the left side  \n\n   \\[\n   3x - 6 = 2x + 5\n   \\]\n\n3. Get all terms containing \\(x\\) on one side and constants on the other.  \n   Subtract \\(2x\\) from both sides:\n\n   \\[\n   3x - 2x - 6 = 5 \\;\\;\\Longrightarrow\\;\\; x - 6 = 5\n   \\]\n\n4. Add 6 to both sides to isolate \\(x\\):\n\n   \\[\n   x = 5 + 6 = 11\n   \\]\n\n---\n\n\\[\n\\boxed{x = 11}\n\\]"
+      
+
+
+
+q5:
+A bag contains 4 red and 6 blue balls. Two balls are drawn without replacement. What is the probability both are red?
+
+Without:
+The total number of balls is  \n\n\\[\n4\\text{ (red)} + 6\\text{ (blue)} = 10.\n\\]\n\nWhen drawing two balls **without replacement**, the probability that both are red is the product of the successive conditional probabilities:\n\n1. **First draw:**  \n   \\[\n   P(\\text{first ball is red}) = \\frac{4}{10}.\n   \\]\n\n2. **Second draw (given the first was red):**  \n   After removing one red ball, there are \\(3\\) red and \\(9\\) total balls left, so  \n   \\[\n   P(\\text{second ball is red}\\mid\\text{first red}) = \\frac{3}{9}.\n   \\]\n\nMultiplying these together:\n\n\\[\nP(\\text{both red}) = \\frac{4}{10}\\times\\frac{3}{9}\n                  = \\frac{4\\cdot3}{10\\cdot9}\n                  = \\frac{12}{90}\n                  = \\frac{2}{15}.\n\\]\n\n\\[\n\\boxed{\\displaystyle \\frac{2}{15}\\approx 0.1333}\n\\]"
+      
+
+
+
+With:
+The total number of balls is \\(4+6 = 10\\).\n\nWhen drawing without replacement, the probability that the first ball is red is  \n\n\\[\n\\frac{4}{10}.\n\\]\n\nAfter removing one red ball, there remain \\(3\\) red balls out of \\(9\\) total balls, so the probability that the second ball is also red is  \n\n\\[\n\\frac{3}{9}.\n\\]\n\nMultiplying the two independent steps gives the joint probability:\n\n\\[\nP(\\text{both red}) = \\frac{4}{10}\\times\\frac{3}{9}= \\frac{12}{90}= \\frac{2}{15}\\approx 0.1333.\n\\]\n\n\\[\n\\boxed{\\frac{2}{15}}\n\\]"
+      
+
+
+Q6:All glips are norks. No norks are vells. Can any glip be a vell, based on these premises?
+
+
+
+
+Without:
+"**Short answer:** No. Under the given premises a glip cannot be a vell.\n\n---\n\n### Why?\n\n1. **Premise 1:** “All glips are norks.”  \n   In set‑theoretic terms: \\(G \\subseteq N\\).\n\n2. **Premise 2:** “No norks are vells.”  \n   This means the sets of norks and vells are disjoint: \\(N \\cap V = \\varnothing\\).\n\n3. **Combine them:**  \n   Since every glip belongs to the set of norks, and the nork set has **no** overlap with the vell set, any element that is a glip cannot also be a vell.\n\n   Formally:  \n   \\[\n   G \\subseteq N \\quad\\text{and}\\quad N \\cap V = \\varnothing \\;\\Longrightarrow\\; G \\cap V = \\varnothing.\n   \\]\n\nThus there is no possible individual that can simultaneously satisfy “glip” and “vell.”\n\n---\n\n### Venn‑diagram intuition\n```\n[ N ]          <-- the big circle of norks\n   [ G ]       <-- a smaller circle entirely inside N (all glips)\n[ V ]          <-- a separate circle that does **not** touch N\n```\nBecause the V circle never touches the N circle, the G circle (which sits inside N) can never intersect V.\n\n---\n\n**Conclusion:** Based solely on the two premises, a glip cannot be a vell."
+      
+
+
+With:
+"**Answer: No – a glip cannot be a vell.**\n\n**Reasoning**\n\n1. **All glips are norks**  \n   This means every thing that is a glip is also a nork. ( G ⊆ N )\n\n2. **No norks are vells**  \n   This states that the sets “nork” and “vell” are disjoint; nothing that is a nork can be a vell. ( N ∩ V = ∅ )\n\n3. **Combine the two premises**  \n   Because every glip is a nork (from 1), and no nork can be a vell (from 2), it follows that no glip can be a vell.\n\nSo, based on the given premises, the answer to “Can any glip be a vell?” is **No**."
+      
+
+
+
+
+
+
+Q7:A code has three digits. The digits are distinct, the first digit is 1, and the second digit is twice the third digit. The third digit is positive. What is the largest possible code?
+
+Without:
+The digits must satisfy  \n\n* first digit = 1  \n* second digit = 2 × third digit  \n* all three digits are different  \n* the third digit is a positive digit (1‑9).\n\nLet the third digit be \\(d\\). Then the second digit is \\(2d\\).\n\nBecause a digit can be at most 9, we need  \n\\(2d \\le 9 \\;\\Rightarrow\\; d \\le 4\\).\n\nSo the possible values for \\(d\\) are \\(1,2,3,4\\).\n\n| \\(d\\) (third) | second = \\(2d\\) | digits | code |\n|--------------|----------------|--------|------|\n| 1 | 2 | 1, 2, 1 (repeat) | invalid |\n| 2 | 4 | 1, 4, 2 | 142 |\n| 3 | 6 | 1, 6, 3 | 163 |\n| 4 | 8 | 1, 8, 4 | 184 |\n\nAll three digits are distinct for \\(d = 2,3,4\\).  \nThe largest three‑digit number among the valid codes is **184**."
+      
+
+
+With:
+
+"The three‑digit code can be written as  \n\n\\[\n\\overline{d_1d_2d_3}\n\\]\n\nwith the given conditions:\n\n* \\(d_1 = 1\\) (the first digit is 1)  \n* \\(d_2 = 2d_3\\) (the second digit is twice the third)  \n* \\(d_3 > 0\\) (the third digit is positive)  \n* All three digits are distinct and each is a decimal digit (0–9).\n\nSince \\(d_2\\) must also be a single digit,  \n\n\\[\n2d_3 \\le 9 \\;\\Longrightarrow\\; d_3 \\le 4.\n\\]\n\nNow test the possible positive values of \\(d_3\\):\n\n| \\(d_3\\) | \\(d_2 = 2d_3\\) | Digits \\((d_1,d_2,d_3)\\) | Distinct? |\n|--------|---------------|--------------------------|-----------|\n| 1      | 2             | (1, 2, 1)                | No (1 repeats) |\n| 2      | 4             | (1, 4, 2)                | Yes |\n| 3      | 6             | (1, 6, 3)                | Yes |\n| 4      | 8             | (1, 8, 4)                | Yes |\n\nThe valid codes are therefore **142**, **163**, and **184**.  \nThe largest numerically is **184**.\n\n\\[\n\\boxed{184}\n\\]"
+      
+
+
+
+
+
+Q8:Five people stand in a line. Arun is somewhere to the left of Bala. Bala is somewhere to the left of Charu. Must Arun be to the left of Charu?
+
+
+Without:
+"**Answer: Yes – Arun must be to the left of Charu.**\n\n**Why?**  \n\nThe phrase “somewhere to the left of” means *strictly left of* (not necessarily adjacent).  \nIf we denote the left‑right order by the relation “ < ”, the given information is:\n\n1. Arun < Bala  \n2. Bala < Charu  \n\nThe “<” relation on a line is **transitive**: whenever \\(X < Y\\) and \\(Y < Z\\), it follows that \\(X < Z\\).  \nApplying transitivity to (1) and (2) gives:\n\n\\[\n\\text{Arun} < \\text{Bala} < \\text{Charu} \\;\\Longrightarrow\\; \\text{Arun} < \\text{Charu}.\n\\]\n\nThus, no matter how the other two people are placed among the five, Arun will always be somewhere to the left of Charu."
+      
+
+With:
+
+"Yes.  \n\nThe “to the left of” relation in a line is **transitive**:\n\n* If Arun is somewhere to the left of Bala, then the position of Arun is **before** (i.e., has a smaller index than) the position of Bala.  \n* If Bala is somewhere to the left of Charu, then the position of Bala is **before** the position of Charu.\n\nPutting those two statements together gives  \n\n\\[\n\\text{position(Arun)} < \\text{position(Bala)} < \\text{position(Charu)},\n\\]\n\nso necessarily  \n\n\\[\n\\text{position(Arun)} < \\text{position(Charu)}.\n\\]\n\nThus Arun must be to the left of Charu, regardless of where the other two people (or any of the five total) stand. The fact that there are five people does not affect the logical consequence; the same holds for any line of three or more individuals."
+     
+
+Q9:A box contains only red and green tokens. Every red token is heavy. A token is known to be heavy. Does this prove that it is red?
+
+
+Without:
+"No.  \n\nThe information given lets us infer only one direction:\n\n\\[\n\\text{Red} \\;\\Longrightarrow\\; \\text{Heavy}\n\\]\n\nIn words: **if** a token is red, **then** it is heavy.  \nWhat we do **not** know is whether heaviness can also occur for green tokens.  \n\nLogical form  \n\n| Premise | Symbol |\n|---------|--------|\n| Every red token is heavy. | \\(R \\rightarrow H\\) |\n| A particular token is heavy. | \\(H\\) |\n\nFrom \\(R \\rightarrow H\\) and \\(H\\) we cannot deduce \\(R\\). That would be the fallacy of *affirming the consequent*:\n\n\\[\n\\frac{R \\rightarrow H,\\; H}{\\therefore R}\n\\]\n\nThe inference would be valid only if we also had the converse (or equivalently the biconditional) \\(H \\rightarrow R\\) — i.e., “**only** red tokens are heavy.” The statement “every red token is heavy” does **not** rule out the possibility that some green tokens are heavy as well.\n\n### Counter‑example\n\nImagine the box actually contains:\n\n| Token colour | Weight |\n|--------------|--------|\n| Red          | Heavy  |\n| Green        | Heavy  |\n| Green        | Light  |\n\nAll red tokens are heavy, satisfying the premise. Pick any heavy token; it might be the green one. Thus knowing a token is heavy does **not** guarantee it is red.\n\n### Summary\n\n- **Given**: \\(R \\rightarrow H\\) (red ⇒ heavy).  \n- **Known**: \\(H\\) (the token is heavy).  \n- **Conclusion**: Cannot infer \\(R\\); the token could be red **or** green.  \n\nSo the answer is **no**—the fact that a token is heavy does not prove it is red. It would only be provable if the problem also said “only red tokens are heavy” (i.e., \\(H \\rightarrow R\\) or \\(R \\leftrightarrow H\\))."
+      
+
+With:
+"**Short answer:** No.  \nKnowing that a token is heavy does **not** guarantee that it is red.\n\n---\n\n## Why the inference fails\n\nThe information given can be expressed in logical form:\n\n1. **Domain:** the tokens in the box (they are either red or green).  \n2. **Premise:** “Every red token is heavy.”  \n   \\[\n   \\forall x\\;(R(x) \\rightarrow H(x))\n   \\]\n\n3. **Observation:** “This token is heavy.”  \n   \\[\n   H(t)\n   \\]\n\nFrom (1) we have the **implication** “red → heavy”.  \nFrom (2) we have a **fact** “heavy”.  \n\nBut an implication only lets us go **forward** from the antecedent to the consequent:\n\n\\[\nR(x) \\;\\Longrightarrow\\; H(x)\n\\]\n\nIt does **not** let us go backward from the consequent to the antecedent.  \nThe converse\n\n\\[\nH(x) \\;\\Longrightarrow\\; R(x)\n\\]\n\nis not justified unless we have an additional premise such as “Only red tokens are heavy,” i.e.\n\n\\[\n\\forall x\\;(H(x) \\rightarrow R(x))\n\\]\n\nor an equivalent statement “All heavy tokens are red.”  \nThat premise is **absent**.\n\n---\n\n## Counter‑example showing the inference is invalid\n\nConsider a concrete arrangement that satisfies all the given conditions but where a heavy token is green:\n\n| Token | Color | Weight |\n|-------|-------|--------|\n| A     | red   | heavy  |\n| B     | red   | heavy  |\n| C     | green | **heavy** |\n| D     | green | light  |\n\n- Every red token (A, B) is heavy → premise satisfied.\n- The box contains only red and green tokens → satisfied.\n- Token C is heavy, yet it is green.\n\nThus a heavy token need **not** be red. The observation “the token is heavy” does **not** prove it is red.\n\n---\n\n## Formal perspective (truth‑table style)\n\n| \\(R\\) | \\(H\\) | \\(R \\rightarrow H\\) |\n|------|------|----------------------|\n| T    | T    | T                    |\n| T    | F    | **F** (impossible, because “every red is heavy”) |\n| F    | T    | T                    |\n| F    | F    | T                    |\n\nThe rows where the premise \\(\\forall x(R(x)\\rightarrow H(x))\\) is true include the case **\\(R = \\text{false}, H = \\text{true}\\)** — a heavy green token. Hence heavy alone does not force \\(R = \\text{true}\\).\n\n---\n\n## Bottom line\n\n- **What we know:** All red tokens are heavy.  \n- **What we do not know:** Whether any green token can also be heavy.  \n- **Conclusion:** From “the token is heavy” we cannot deduce “the token is red.” The statement is **not provable**; it would require the stronger claim “Only red tokens are heavy,” which has not been given."
+      
+
+Q10:Three switches each independently control one of three lamps, one switch per lamp. You do not know the mapping. If you test only one switch and observe that its lamp turns on, can you determine the mappings of the other two switches?
+
+Without:
+**Answer:** No – observing a single switch only narrows the possibilities to two, not to a single definite mapping.\n\n**Why?**\n\n1. There are \\(3!\\;=\\;6\\) possible one‑to‑one correspondences between the three switches \\(\\{S_1,S_2,S_3\\}\\) and the three lamps \\(\\{L_A,L_B,L_C\\}\\).\n\n2. When you test one particular switch, say \\(S_1\\), and see that lamp \\(L_B\\) lights, you have learned that the pair \\((S_1 \\rightarrow L_B)\\) is correct.\n\n3. That leaves the remaining two switches \\(\\{S_2,S_3\\}\\) to be matched with the remaining two lamps \\(\\{L_A,L_C\\}\\). There are exactly \\(2!\\;=\\;2\\) ways to do that:\n\n   * \\(S_2 \\rightarrow L_A,\\; S_3 \\rightarrow L_C\\)\n   * \\(S_2 \\rightarrow L_C,\\; S_3 \\rightarrow L_A\\)\n\n4. Since you have no additional information about which of those two assignments is true, you cannot uniquely determine the mappings of the other two switches.\n\nSo a single test reduces the uncertainty from six possibilities to two, but it does **not** resolve the mapping completely. You would need at least one more independent observation (e.g., testing a second switch) to pinpoint the exact correspondence."
+      
+
+
+With:
+"**Short answer:** No.  \nTesting a single switch tells you only which lamp that particular switch controls; the remaining two switches can still be paired with the two remaining lamps in either of two ways, and you have no way to tell which is which without additional information.\n\n---\n\n### Why the information is insufficient\n\nLabel the switches \\(S_1, S_2, S_3\\) and the lamps \\(L_1, L_2, L_3\\).  \nThe (unknown) wiring is a **bijection** \\(f:\\{S_1,S_2,S_3\\}\\to\\{L_1,L_2,L_3\\}\\).\n\n1. **You flip one switch**, say \\(S_1\\), and you see that lamp \\(L_2\\) lights.  \n   From this you can conclude **only** that  \n   \\[\n   f(S_1)=L_2 .\n   \\]\n\n2. The two switches you have not tested, \\(S_2\\) and \\(S_3\\), must each control one of the two lamps that are still dark, i.e. \\(\\{L_1, L_3\\}\\).  \n   There are exactly **two** bijections consistent with what you already know:\n\n   * **Option A:** \\(f(S_2)=L_1,\\; f(S_3)=L_3\\)  \n   * **Option B:** \\(f(S_2)=L_3,\\; f(S_3)=L_1\\)\n\n   Both possibilities satisfy every observation you have made so far, and nothing you have observed can rule either one out.\n\n3. Since the two possibilities are indistinguishable without further testing, you cannot determine the exact mapping of the remaining two switches.\n\n---\n\n### What would be needed to resolve it?\n\n- **Test a second switch.** Flipping either \\(S_2\\) or \\(S_3\\) would immediately tell you which of the two remaining lamps it powers, thereby fixing the whole mapping.\n- **Gather extra external information** (e.g., a wiring diagram, a label on the switches, or a known pattern of which lamp is “supposed” to be on when a particular switch is flipped). Absent that, a second physical test is the only way.\n\n---\n\n### Summary\n\nObserving the result of a single switch gives you a one‑to‑one correspondence for that switch only. The two untouched switches still have two possible assignments to the two untouched lamps, leaving an unavoidable ambiguity. Therefore, **you cannot determine the mappings of the other two switches after testing only one switch**."
+      
+
+
+      

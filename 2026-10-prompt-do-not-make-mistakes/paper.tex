@@ -1,0 +1,349 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{xcolor}
+
+\title{Does ``Do Not Make Mistakes'' Improve Large Language Model Accuracy?\\
+\large An Exploratory Pilot Study}
+\author{Karthik Murali M}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This exploratory pilot investigates whether appending the generic
+instruction ``Do not make mistakes'' changes the accuracy or output
+characteristics of a large language model (LLM). Ten questions,
+comprising five mathematics and five logical reasoning tasks, were
+submitted under baseline and instruction conditions using
+\texttt{openai/gpt-oss-20b} through Groq.
+
+Final answers were correct across all ten questions in both conditions,
+yielding 100\% observed final-answer accuracy and zero percentage points
+difference. However, the instruction produced notable shifts in explanation
+length and structure: total word count increased by approximately 32\%
+(from 965 to 1,275 words). While two questions showed minor compression
+due to the omission of visual aids (such as an ASCII Venn diagram), several
+complex logical reasoning questions expanded substantially. Under the
+instruction condition, the model adopted a defensive, hyper-formalized
+style, introducing predicate logic, truth tables, and set bijections.
+Furthermore, Question~5 contained an inaccurate characterization of
+dependent events as ``independent'' despite reaching the correct numerical
+answer. These observations emphasize the importance of distinguishing
+final-answer correctness from reasoning validity and perceived brevity.
+\end{abstract}
+
+\section{Introduction}
+
+Large language models are commonly prompted with meta-instructions intended
+to improve output reliability. One common, low-friction prompt addition is
+the phrase ``Do not make mistakes.'' It requires no additional models,
+multi-turn prompting, external verifiers, or specialized infrastructure.
+
+However, it is not well established whether a generic command to avoid errors
+reliably improves correctness, alters verbosity, or introduces defensive
+framing. Its effect may vary significantly depending on the task domain,
+problem complexity, and evaluation metric. Moreover, models may arrive at
+correct final answers through invalid reasoning steps, or conversely, adopt
+overly verbose formalisms without improving baseline accuracy.
+
+This pilot investigates the following questions:
+\begin{quote}
+Does adding ``Do not make mistakes'' improve final-answer accuracy, and how
+does it influence output length, explanation structure, and reasoning validity
+across mathematics and logical reasoning tasks?
+\end{quote}
+
+This document reports findings from an initial paired experiment. Its purpose
+is to quantify response characteristics, document structural shifts, and
+establish a foundation for larger-scale investigations.
+
+\section{Related Work}
+
+\subsection{Intrinsic Self-Correction and Meta-Prompting}
+A growing body of work examines whether large language models can detect and
+rectify their own errors without external tools. \citeauthor{kamoi2024}~\cite{kamoi2024}
+surveyed self-correction experiments and demonstrated that intrinsic prompting—asking
+a model to re-examine or verify its own prior outputs—rarely leads to genuine
+accuracy gains in deductive reasoning. Most reported improvements were either
+artifacts of external ground-truth leaks or unrepresentative setups. Our
+investigation of generic instructions such as ``Do not make mistakes'' evaluates
+the extreme end of this spectrum: unanchored meta-prompts that provide neither
+ground-truth signals nor external verification.
+
+\subsection{Structured vs. Unstructured Verification}
+While generic instructions fail to reliably trigger correction, structured
+verification protocols show greater promise. \citeauthor{wu2024}~\cite{wu2024}
+introduced key condition verification (ProCo), wherein a problem's condition is
+masked and reconstructed backward from candidate responses, allowing models to catch
+latent logical conflicts. Contrasting targeted verification with open-ended
+meta-prompts helps clarify whether model failures stem from an inherent lack of
+verification capability or simply the absence of an algorithmic verification procedure.
+
+\subsection{Prompt Sensitivity and Evaluation Artifacts}
+Apparent variations in model competence across prompt variants can be
+misleading. \citeauthor{hua2025}~\cite{hua2025} demonstrated that significant
+portions of reported prompt sensitivity arise from heuristic evaluation
+artifacts—such as strict regex parsers or exact-string matchers—rather than true
+shifts in underlying capability. This motivates our dual evaluation methodology,
+which evaluates intermediate reasoning validity independently from final surface strings.
+
+\section{Research Question}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Primary Question:} Does adding ``Do not make mistakes'' to a prompt
+    change final-answer accuracy on elementary mathematics and logical reasoning tasks?
+    \item \textbf{Secondary Question:} Does the directive alter explanation length,
+    verbosity, or reasoning validity?
+\end{enumerate}
+
+\section{Methodology}
+
+\subsection{Model and Provider}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Model identifier:} \texttt{openai/gpt-oss-20b}
+    \item \textbf{Inference provider:} Groq
+    \item \textbf{Benchmark size:} 10 questions (5 mathematics, 5 logical reasoning)
+\end{itemize}
+
+\subsection{Experimental Conditions}
+A paired design was employed across the 10 questions:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Condition A (Baseline):} The prompt contained solely the problem text.
+    \item \textbf{Condition B (Instruction):} The prompt appended the instruction:
+    ``Do not make mistakes.''
+\end{itemize}
+This produced 20 total responses (one response per condition per question).
+
+\subsection{Evaluation Protocol}
+Outputs were evaluated on three dimensions:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Final-Answer Accuracy:} Binary assessment of final numerical or logical conclusion.
+    \item \textbf{Response Length:} Word and character counts across the raw textual body.
+    \item \textbf{Reasoning Validity:} Qualitative review of the intermediate derivation for conceptual soundness.
+\end{enumerate}
+
+\section{Results}
+
+\subsection{Final-Answer Accuracy}
+
+Both conditions attained 100\% final-answer accuracy across all ten questions (Table~\ref{tab:accuracy}).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Condition} & \textbf{Correct Answers} & \textbf{Total Questions} & \textbf{Accuracy} \\
+\midrule
+Baseline (Condition A)      & 10 & 10 & 100\% \\
+Instruction (Condition B)   & 10 & 10 & 100\% \\
+\bottomrule
+\end{tabular}
+\caption{Reported final-answer accuracy across conditions.}
+\label{tab:accuracy}
+\end{table}
+
+The observed accuracy difference is:
+\[
+\Delta = \text{Accuracy}_{B} - \text{Accuracy}_{A} = 100\% - 100\% = 0\text{ percentage points}.
+\]
+This ceiling effect is attributable to the elementary nature of the benchmark problems.
+
+\subsection{Response Length Analysis}
+
+A question-by-question word count comparison is summarized in Table~\ref{tab:wordcount}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llccc}
+\toprule
+\textbf{\#} & \textbf{Topic} & \textbf{Baseline (A)} & \textbf{Instruction (B)} & \textbf{Difference ($\Delta$)} \\
+\midrule
+Q1  & Percentage Changes (₹500 item)      & 30  & 32  & +2   \\
+Q2  & Dice Probability (Sum = 7)          & 55  & 53  & $-2$  \\
+Q3  & Average Speed (Train 120\,km legs)  & 50  & 80  & +30  \\
+Q4  & Linear Equation ($3(x-2)=2x+5$)     & 65  & 65  & 0    \\
+Q5  & Balls Without Replacement           & 85  & 65  & $-20$ \\
+Q6  & Syllogism (Glips, Norks, Vells)     & 165 & 90  & $-75$ \\
+Q7  & Digit Code Optimization             & 95  & 120 & +25  \\
+Q8  & Transitivity of Linear Ordering     & 85  & 115 & +30  \\
+Q9  & Affirming the Consequent (Tokens)   & 195 & 310 & +115 \\
+Q10 & Switch-to-Lamp Bijection            & 140 & 245 & +105 \\
+\midrule
+\textbf{Total} & & \textbf{965} & \textbf{1,275} & \textbf{+310 (+32.1\%)} \\
+\textbf{Mean}  & & \textbf{96.5} & \textbf{127.5} & \textbf{+31.0} \\
+\bottomrule
+\end{tabular}
+\caption{Word counts of responses across baseline and instruction conditions.}
+\label{tab:wordcount}
+\end{table}
+
+Contrary to the initial intuitive impression that ``Do not make mistakes'' produced shorter responses, the aggregate text expanded from 965 to 1,275 words, representing a \textbf{32.1\% increase in overall verbosity}.
+
+The impression of brevity is explained by two specific factors:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Selective compression in Questions 5 and 6:} In Question~6, the baseline output generated an ASCII Venn diagram and extended commentary (165 words), whereas the instruction output omitted the diagram in favor of a 3-step proof (90 words). In Question~5, bulleted lists were condensed into a paragraph.
+    \item \textbf{Top-loaded summaries:} The instruction condition consistently opened with succinct executive headers (e.g., \texttt{**Short answer:** No.}) or closed with bulleted summaries (\texttt{\#\# Bottom line}), which created an appearance of conciseness despite substantially longer explanatory text below.
+\end{enumerate}
+
+\subsection{Qualitative Shift: Defensive Formalization}
+
+On complex reasoning tasks (notably Questions 7, 9, and 10), the instruction condition triggered defensive formalization:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symbolic Logic:} In Question~9, the model supplemented standard deduction with explicit universal quantifiers and implications ($\forall x (R(x) \to H(x))$), followed by a complete truth table.
+    \item \textbf{Mathematical Rigor:} In Question~10, the model formally framed the mapping as a bijection $f: \{S_1, S_2, S_3\} \to \{L_1, L_2, L_3\}$, enumerated both unobserved permutations, and added an unsolicited discussion of external verification requirements.
+    \item \textbf{Mathematical Notation:} In Question~7, the model adopted decimal bar notation ($\overline{d_1d_2d_3}$).
+\end{itemize}
+
+\subsection{Reasoning Flaw in Question 5}
+
+In Question~5 (probability of drawing two red balls without replacement), both conditions reached the correct numerical result ($2/15$). However, the instruction condition described the calculation as:
+\begin{quote}
+``Multiplying the two independent steps gives the joint probability...''
+\end{quote}
+Draws without replacement are statistically dependent events ($P(A \cap B) = P(A)P(B \mid A)$). While the model evaluated $P(B \mid A) = 3/9$ correctly, its conceptual attribution was flawed. As noted by \citeauthor{kamoi2024}~\cite{kamoi2024}, prompt-based caution can generate formal-sounding language without guaranteeing underlying semantic soundness.
+
+\section{Discussion}
+
+The ceiling effect observed on this 10-item set indicates that simple arithmetic and deductive puzzles cannot differentiate performance under generic instructional prompting.
+
+However, the behavioral shift is evident:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Prompt Burden and Expansion:} In line with the findings of \citeauthor{hua2025}~\cite{hua2025}, prompt phrasing substantially altered surface formatting and verbosity (+32\% word count) while leaving underlying task capability unchanged.
+    \item \textbf{Defensive Posturing:} The model defaults to symbolic logic, tabular proofs, and explicit disclaimers when cautioned against error.
+    \item \textbf{Decoupling of Correctness and Soundness:} As demonstrated in Question~5, intermediate reasoning errors can persist undetected behind correct final outputs.
+\end{enumerate}
+
+\section{Limitations}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Benchmark Size:} 10 questions is an exploratory sample, insufficient for statistical hypothesis testing.
+    \item \textbf{Ceiling Effect:} 100\% baseline accuracy precludes measuring potential gains in error reduction.
+    \item \textbf{Deterministic Variance:} Single-pass sampling at default temperature settings leaves run-to-run variance unquantified.
+    \item \textbf{Lack of Problem Hardness:} The questions do not probe domains where LLMs are known to hallucinate or miscalculate consistently.
+\end{enumerate}
+
+\section{Next Steps}
+
+\begin{enumerate}[leftmargin=*]
+    \item Expand the evaluation to standardized reasoning benchmarks (e.g., GSM8K, MATH, Big-Bench Hard).
+    \item Evaluate structured verification frameworks such as Key Condition Verification \cite{wu2024} against unstructured instructions.
+    \item Conduct multi-seed sampling (e.g., $N=5$ per prompt) across diverse temperature settings.
+    \item Introduce formal automated scoring rubrics separating final-token accuracy from intermediate step validity.
+    \item Quantify the token overhead and compute cost introduced by the increased verbosity of error-aversion prompts.
+\end{enumerate}
+
+\section{Conclusion}
+
+This pilot investigated the effect of appending ``Do not make mistakes'' to prompts across 10 reasoning problems on \texttt{openai/gpt-oss-20b}. While final-answer accuracy remained unchanged at 100\%, the instruction increased total response length by 32\% and systematically shifted response style toward defensive formalization and symbolic notation. Furthermore, the presence of invalid terminology in an otherwise correct answer underscores that instructional prompts do not inherently safeguard against flawed intermediate reasoning.
+
+% =========================================================================
+% REFERENCES (Kept here in the same file so you don't need a separate .bib)
+% =========================================================================
+\begin{thebibliography}{3}
+
+\bibitem{kamoi2024}
+Ryo Kamoi, Yusen Zhang, Nan Zhang, Jiawei Han, and Rui Zhang. 2024.
+\newblock When Can {LLMs} Actually Correct Their Own Mistakes? A Critical Survey of Self-Correction of {LLMs}.
+\newblock \emph{Transactions of the Association for Computational Linguistics (TACL)}, 12:1417--1440.
+
+\bibitem{wu2024}
+Zhenyu Wu, Qingkai Zeng, Zhihan Zhang, Zhaoxuan Tan, Chao Shen, and Meng Jiang. 2024.
+\newblock Large Language Models Can Self-Correct with Key Condition Verification.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP)}, pages 12846--12867.
+
+\bibitem{hua2025}
+Andong Hua, Kenan Tang, Chenhe Gu, Jindong Gu, Eric Wong, and Yao Qin. 2025.
+\newblock Flaw or Artifact? Rethinking Prompt Sensitivity in Evaluating {LLMs}.
+\newblock In \emph{Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)}.
+
+\end{thebibliography}
+
+\appendix
+
+\section{Individual Item Records and Comparison}
+
+\subsection{Mathematics Questions}
+
+\subsubsection{Question 1: Successive Percentage Changes}
+\textbf{Prompt:} A shop increases an item's price by 20\% and then reduces the new price by 20\%. The original price was ₹500. What is the final price?
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (30 words):} Direct calculation ($500 \times 1.20 = 600$, $600 \times 0.80 = 480$). Final: ₹480.
+    \item \textbf{Instruction (32 words):} Identical multipliers; includes reasoning note regarding asymmetric bases. Final: ₹480.
+\end{itemize}
+
+\subsubsection{Question 2: Probability of Sum of Seven}
+\textbf{Prompt:} A fair six-sided die is rolled twice. What is the probability that the sum is 7?
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (55 words):} Identifies 36 outcomes, enumerates the 6 valid pairs, reduces $6/36$ to $1/6$.
+    \item \textbf{Instruction (53 words):} Similar structure, uses set membership notation $(a,b \in \{1,2,3,4,5,6\})$. Result: $1/6$.
+\end{itemize}
+
+\subsubsection{Question 3: Average Speed}
+\textbf{Prompt:} A train travels 120\,km at 60\,km/h and then another 120\,km at 40\,km/h. What is its average speed for the entire journey?
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (50 words):} Computes leg times (2\,h, 3\,h), total time (5\,h), and average speed (48\,km/h).
+    \item \textbf{Instruction (80 words):} Expanded step-by-step structure with explicit step headers and variable labels ($d_{\text{total}}, t_1, t_2, v_{\text{avg}}$). Result: 48\,km/h.
+\end{itemize}
+
+\subsubsection{Question 4: Linear Equation}
+\textbf{Prompt:} Solve for $x$: $3(x-2)=2x+5$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (65 words):} Distributes to $3x-6$, isolates variable, concludes $x=11$.
+    \item \textbf{Instruction (65 words):} Identical derivation and word count; uses alternate header formatting. Result: $x=11$.
+\end{itemize}
+
+\subsubsection{Question 5: Drawing Without Replacement}
+\textbf{Prompt:} A bag contains 4 red and 6 blue balls. Two balls are drawn without replacement. What is the probability both are red?
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (85 words):} Computes $4/10 \times 3/9 = 2/15$. Correctly describes step 2 as conditional.
+    \item \textbf{Instruction (65 words):} Computes $2/15$; incorrectly characterizes the sequential draws as ``independent steps.''
+\end{itemize}
+
+\subsection{Logical Reasoning Questions}
+
+\subsubsection{Question 6: Set Inclusion}
+\textbf{Prompt:} All glips are norks. No norks are vells. Can any glip be a vell, based on these premises?
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (165 words):} Expresses premises in set notation ($G \subseteq N, N \cap V = \varnothing$) and provides an ASCII diagram.
+    \item \textbf{Instruction (90 words):} Omits the ASCII diagram; delivers a concise syllogistic deduction. Conclusion: No.
+\end{itemize}
+
+\subsubsection{Question 7: Largest Valid Code}
+\textbf{Prompt:} A code has three digits. The digits are distinct, the first digit is 1, and the second digit is twice the third digit. The third digit is positive. What is the largest possible code?
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (95 words):} Bounds the third digit $d \le 4$, constructs candidate table, eliminates 121, selects 184.
+    \item \textbf{Instruction (120 words):} Introduces place-value notation $\overline{d_1d_2d_3}$, formats full verification table. Result: 184.
+\end{itemize}
+
+\subsubsection{Question 8: Transitivity of Ordering}
+\textbf{Prompt:} Five people stand in a line. Arun is somewhere to the left of Bala. Bala is somewhere to the left of Charu. Must Arun be to the left of Charu?
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (85 words):} Applies strict inequality transitivity ($\text{Arun} < \text{Bala} < \text{Charu}$).
+    \item \textbf{Instruction (115 words):} Expresses positions as indices ($\text{pos}(A) < \text{pos}(B) < \text{pos}(C)$) and notes the irrelevance of the distractor ($N=5$).
+\end{itemize}
+
+\subsubsection{Question 9: Affirming the Consequent}
+\textbf{Prompt:} A box contains only red and green tokens. Every red token is heavy. A token is known to be heavy. Does this prove that it is red?
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (195 words):} Identifies the fallacy of affirming the consequent; provides a counterexample table.
+    \item \textbf{Instruction (310 words):} Substantially expanded. Formalizes as $\forall x (R(x) \to H(x))$, provides domain constraints, concrete counterexample matrix, a truth table, and a summary section.
+\end{itemize}
+
+\subsubsection{Question 10: Switch Mapping}
+\textbf{Prompt:} Three switches each independently control one of three lamps, one switch per lamp. You do not know the mapping. If you test only one switch and observe that its lamp turns on, can you determine the mappings of the other two switches?
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Baseline (140 words):} Identifies $3! = 6$ permutations reduced to $2! = 2$, concluding that ambiguity remains.
+    \item \textbf{Instruction (245 words):} Formalizes mapping as a bijection $f: S \to L$, enumerates both unresolved bijections, and outlines empirical steps required for resolution.
+\end{itemize}
+
+\end{document}
